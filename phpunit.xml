@@ -32,6 +32,7 @@
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
+        <env name="APP_KEY" value="base64:XyZw61u5Yy8r4l6k5y7d9c2e4f6g8h0j2k4m6n9p0q2="/>
         <env name="IDENTITY_HASH_PEPPER" value="test-pepper-test-pepper-test-pepper-1234"/>
     </php>
 </phpunit>
