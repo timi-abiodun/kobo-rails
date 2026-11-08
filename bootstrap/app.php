@@ -21,4 +21,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );
+
+        $exceptions->dontFlash(['bvn', 'nin']);
+
+        $exceptions->render(fn (\App\Identity\Exceptions\IdentityProviderUnavailable $e) => response()->json([
+            'error'   => 'identity_provider_unavailable',
+            'message' => 'We could not verify your identity right now. Please try again shortly.',
+        ], 503)->header('Retry-After', '30'));
     })->create();
