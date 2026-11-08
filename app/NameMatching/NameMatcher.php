@@ -33,6 +33,12 @@ final class NameMatcher
         );
     }
 
+    /** Space-joined normalised tokens. This (not the raw name) is what leaves the process for the scorer. */
+    public function normalizedName(string $name): string
+    {
+        return implode(' ', $this->normalizer->tokens($name));
+    }
+
     public function match(string $registeredName, string $bankName): NameMatchResult
     {
         $s = $this->scorer->score(
